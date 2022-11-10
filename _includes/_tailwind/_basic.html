@@ -1,0 +1,163 @@
+<style type="text/tailwindcss">
+  /* @tailwind base; */
+
+  @layer base {
+    /* // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Basics */
+    html, body {
+      @apply h-full
+    }
+
+    body {
+      @apply bg-background_color font-body font-regular not-italic leading-none text-text_medium_color
+    }
+
+
+    /* // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Typography */
+    h1, h2, h3, h4, h5, h6 {
+      @apply font-title text-text_dark_color first:mt-0
+    }
+
+    h1, .h1 {
+      @apply text-h1_small font-h1 leading-h1 tracking-h1 md:text-h1_medium lg:text-h1_large
+    }
+    /* asdasd: h1 랑 .h1의 자식인데 */
+    h1 > a {
+      @apply font-h1
+    }
+
+
+    h2, .h2 {
+      @apply mt-10 text-h2_small font-h2 leading-h2 tracking-h2 md:text-h2_medium lg:text-h2_large
+    }
+    /* asdasd: h2 랑 .h2의 자식인데 */
+    h2 > a {
+      @apply font-h2
+    }
+
+    h3, .h3 {
+      @apply mt-10 text-h3_small font-h3 leading-h3 tracking-h3 md:text-h3_medium lg:text-h3_large
+    }
+
+    h4, .h4 {
+      @apply mt-[25px] text-h4_small font-h4 leading-h4 tracking-h4 md:text-h4_medium lg:text-h4_large
+    }
+
+    h5, .h5 {
+      @apply mt-[15px] text-h5_small font-h5 leading-h5 tracking-h5 md:text-h5_medium lg:text-h5_large
+    }
+
+    h6, .h6 {
+      @apply mt-[15px] text-h6_small font-h6 leading-h6 tracking-h6 md:text-h6_medium lg:text-h6_large
+    }
+
+    p, ul, ol {
+      @apply mt-[15px] text-p_small font-p leading-p tracking-p md:text-p_medium lg:text-p_large first:mt-0
+    }
+    /* asdasd: 여기 다 따로 함 */
+    p > strong {
+      @apply font-bold
+    }
+    ul > strong {
+      @apply font-bold
+    }
+    ol > strong {
+      @apply font-bold
+    }
+
+    ul, ol {
+      @apply list-inside
+    }
+
+    blockquote {
+      @apply mt-[15px] font-title text-blockquote_small font-blockquote tracking-blockquote leading-blockquote md:text-blockquote_medium lg:text-blockquote_large
+    }
+    blockquote > p {
+      @apply mt-[15px] text-blockquote_small font-blockquote tracking-blockquote leading-blockquote md:text-blockquote_medium lg:text-blockquote_large
+    }
+
+    a {
+      @apply no-underline text-text_dark_color font-bold transition-all duration-150 ease-in-out hover:text-accent_color
+    }
+
+    .button {
+      @apply inline-block pt-[9px] px-[10px] pb-[10px] text-[13px] leading-none border-2 border-solid border-accent_color rounded-[3px] bg-accent_color text-background_color font-buttons tracking-buttons cursor-pointer md:pt-[11px] md:px-[20px] md:pb-[12px] md:text-[15px] hover:hue-rotate-15 hover:text-background_color
+    }
+
+    .button > svg {
+      @apply mr-[5px] last:mr-0 last:ml-[5px] md:mr-2 md:last:mr-0 md:last:mr-0 md:last:ml-2
+    }
+
+    .button--large {
+      @apply pt-[15px] px-5 pb-4 text-[13px] md:pt-[19px] md:px-10 md:mb-20px text-[17px]
+    }
+
+    .button--light {
+      @apply bg-transparent border-border_color text-text_dark_color hover:bg-accent_color hover:border-accent_color hover:text-background_color
+    }
+
+    .button--overlay {
+      @apply bg-transparent border-overlay_text_color text-overlay_text_color hover:bg-overlay_text_color hover:border-overlay_text_color hover:text-accent_color
+    }
+
+    hr {
+      @apply my-10 mx-0 border-0 h-0.5 bg-border_color
+    }
+
+    ::selection {
+      @apply bg-accent_color text-background_color
+    }
+    ::-moz-selection {
+      @apply bg-accent_color text-background_color
+    }
+
+    /* // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Page loading */
+    .page-loader {
+      @apply hidden
+    }
+
+    .page {
+      @apply transition-all duration-400 ease-in-out
+    }
+
+    body.loading > .loader {
+      @apply opacity-100 visible transition-all duration-400 ease-in-out delay-1000
+    }
+
+    body.loading > .page {
+      @apply opacity-0 invisible transition-all duration-400 ease-in-out
+    }
+
+    body.loading > .footer {
+      @apply opacity-0 invisible transition-all duration-400 ease-in-out
+    }
+
+    .loader {
+      @apply fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-15 h-[15px] opacity-0 invisible transition-all duration-200 ease-in-out md:left-[65%] 2xl:md:left-[62.5%]
+    }
+    /* asdasd: fill: rgba($text-dark-color,0.2); 이게 맞는지 모르겠음 */
+    .loader > svg {
+      @apply w-full h-full fill-text_dark_color/20
+    }
+
+    .page, .page__content {
+      @apply float-left clear-both w-full
+    }
+
+    .page {
+      @apply lg:pl-[30%] 2xl:pl-[25%]
+    }
+
+    /* // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Page sections */
+    .featured-image {
+      @apply relative w-full h-0 pb-[56.25%] bg-cover bg-center bg-no-repeat lg:fixed lg:z-10 lg:top-0 lg:left-0 lg:bottom-0 lg:h-auto lg:pb-0 lg:w-[30%]
+    }
+
+    section {
+      @apply mt-10 md:mt-[50px] lg:mt-15 2xl:mt-20
+    }
+
+    .wrap {
+      @apply relative my-0 mx-auto py-0 px-5 md:py-0 md:px-10 lg:p-0
+    }
+  }
+</style>

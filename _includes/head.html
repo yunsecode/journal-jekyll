@@ -1,0 +1,269 @@
+<head>
+
+
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+	{{ site.data.settings.basic_settings.site_title }}
+
+	Journal Theme by https://jekyllthemes.io
+	Premium + free Jekyll themes for your blog or website.
+
+	- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <!-- Page Info -->
+  <link rel="shortcut icon" href="{{ site.data.settings.basic_settings.favicon_image | relative_url }}">
+  <title>{% if page.url == "/" %}{{ site.data.settings.basic_settings.site_title }} – {{ page.title }}{% else %}{{
+    page.title }} – {{ site.data.settings.basic_settings.site_title }}{% endif %}</title>
+  <meta name="description"
+    content="{% if page.description %}{{ page.description | strip_html | xml_escape }}{% else %}{{ page.excerpt | strip_html | xml_escape }}{% endif %}">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if page.url == " /" %}{{ site.data.settings.basic_settings.site_title }} – {{
+    page.title }}{% else %}{{ page.title }} – {{ site.data.settings.basic_settings.site_title }}{% endif %}">
+  <meta name="twitter:description"
+    content="{% if page.description %}{{ page.description | strip_html | xml_escape }}{% else %}{{ page.excerpt | strip_html | xml_escape }}{% endif %}">
+  <meta name="twitter:image:src" content="{{ page.featured_image | absolute_url }}">
+
+  <!-- Facebook OpenGraph -->
+  <meta property="og:title" content="{% if page.url == " /" %}{{ site.data.settings.basic_settings.site_title }} – {{
+    page.title }}{% else %}{{ page.title }} – {{ site.data.settings.basic_settings.site_title }}{% endif %}" />
+  <meta property="og:description"
+    content="{% if page.description %}{{ page.description | strip_html | xml_escape }}{% else %}{{ page.excerpt | strip_html | xml_escape }}{% endif %}" />
+  <meta property="og:image" content="{{ page.featured_image | absolute_url }}" />
+
+  {% if site.data.settings.font_settings.font_embed %}
+  <!-- Font Embed Code -->
+  {{ site.data.settings.font_settings.font_embed }}
+  {% endif %}
+
+  <!-- Styles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+
+  <!-- Icons -->
+  <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/solid.js"
+    integrity="sha384-GXi56ipjsBwAe6v5X4xSrVNXGOmpdJYZEEh/0/GqJ3JTHsfDsF8v0YQvZCJYAiGu"
+    crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/brands.js"
+    integrity="sha384-0inRy4HkP0hJ038ZyfQ4vLl+F4POKbqnaUB6ewmU4dWP0ki8Q27A0VFiVRIpscvL"
+    crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/fontawesome.js"
+    integrity="sha384-NY6PHjYLP2f+gL3uaVfqUZImmw71ArL9+Roi9o+I4+RBqArA2CfW1sJ1wkABFfPe"
+    crossorigin="anonymous"></script>
+
+  {% if site.data.settings.advanced_settings.custom_styles %}
+  <!-- Custom Styles -->
+  <style>
+    {
+        {
+        site.data.settings.advanced_settings.custom_styles
+      }
+    }
+  </style>
+  {% endif %}
+
+  {% if site.data.settings.advanced_settings.analytics_code %}
+  <!-- Analytics Code -->
+  {{ site.data.settings.advanced_settings.analytics_code }}
+  {% endif %}
+
+  {% if site.data.settings.advanced_settings.header_js %}
+  <!-- Extra Header JS Code -->
+  {{ site.data.settings.advanced_settings.header_js }}
+  {% endif %}
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      corePlugins: {
+        preflight: false,
+      },
+      darkMode: 'class',
+      theme: {
+        screens: {
+          // phonel
+          'sm': '480px',
+          // tabletp
+          'md': '768px',
+          // tabletl
+          'lg': '1024px',
+          // laptop
+          'xl': '1220px',
+          // desktop
+          '2xl': '1600px'
+        },
+        extend: { // 추가로 하는 것
+          colors: {
+            background_color: '#ffffff',
+            background_alt_color: '#F5F7FA',
+            text_dark_color: '#2A2F36',
+            text_medium_color: '#6C7A89',
+            text_light_color: '#ABB7B7',
+            accent_color: '#A2DED0',
+            border_color: '#dddddd',
+            overlay_background_color: '#161B21',
+            overlay_text_color: '#ffffff',
+            error_color: '#D64541',
+          },
+          fontFamily: {
+            'title': ['"Merriweather"', 'sans-serif'],
+            'body': ['"Muli"', 'sans-serif'],
+          },
+          // text-
+          fontSize: {
+            // h1
+            h1_small: '25px',
+            h1_medium: '35px',
+            h1_large: '45px',
+            // h2
+            h2_small: '25px',
+            h2_medium: '35px',
+            h2_large: '45px',
+            // h3
+            h3_small: '22px',
+            h3_medium: '25px',
+            h3_large: '30px',
+            // h4
+            h4_small: '17px',
+            h4_medium: '22px',
+            h4_large: '22px',
+            // h5
+            h5_small: '17px',
+            h5_medium: '20px',
+            h5_large: '20px',
+            // h6
+            h6_small: '17px',
+            h6_medium: '20px',
+            h6_large: '20px',
+            // p
+            p_small: '16px',
+            p_medium: '18px',
+            p_large: '20px',
+            // blockquote
+            blockquote_small: '25px',
+            blockquote_medium: '35px',
+            blockquote_large: '45px',
+          },
+          // font-
+          fontWeight: {
+            regular: 400,
+            bold: 600,
+            h1: 400,
+            h2: 400,
+            h3: 400,
+            h4: 400,
+            h5: 400,
+            h6: 400,
+            p: 400,
+            blockquote: 400,
+            buttons: 600,
+          },
+          // tracking-
+          letterSpacing: {
+            h1: '-.02em',
+            h2: '-.02em',
+            h3: '-.02em',
+            h4: '0',
+            h5: '0',
+            h6: '0',
+            p: '0',
+            blockquote: '-.02em',
+            buttons: '0',
+          },
+          // leading-
+          lineHeight: {
+            'h1': '1.2',
+            'h2': '1.2',
+            'h3': '1.3',
+            'h4': '1.6',
+            'h5': '1.6',
+            'h6': '1.6',
+            'p': '1.6',
+            'blockquote': '1.6',
+          },
+
+          transitionProperty: {
+            'color': 'color',
+          },
+          transitionDuration: {
+            '250': '250ms', // duration-250 .25
+            '400': '400ms', // duration-400 .4
+            '750': '750ms', // duration-750 .75
+          },
+          transitionTimingFunction: {
+            // 'ease': 'cubic-bezier(.25,.1,.25,1)',
+          },
+          margin: {
+            '15': '60px',   // margin 60px
+            '16': '64px',   // margin 64px
+            '17': '68px',   // margin 68px
+            '18': '72px',   // margin 72px
+            '19': '76px',   // margin 76px
+            '20': '80px',   // margin 80px
+            '25': '100px',  // margin 100px
+          },
+          padding: {
+            '15': '60px',   // padding 60px
+            '16': '64px',   // padding 64px
+            '17': '68px',   // padding 68px
+            '18': '72px',   // padding 72px
+            '19': '76px',   // padding 76px
+            '20': '80px',   // padding 80px
+          },
+          width: {
+            '15': '60px',   // width 60px
+            '22': '88px',   // width 88px
+            '40': '160px',  // width 160px
+            '50': '200px',  // width 200px
+            '95': '380px',  // width 380px
+            '195': '780px',  // width 780px
+          },
+          height: {
+            '15': '60px',   // height 60px
+            '22': '88px',   // height 88px
+            '40': '160px',  // height 160px
+            '50': '200px',  // height 200px
+            '70': '280px',  // height 280px
+          },
+          strokeWidth: {
+            '8': '8px', // stroke-width: 8;
+          },
+          boxShadow: {
+            // 'video': '0px 100px 80px rgba(0, 0, 0, 0.07), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275)',
+          },
+          animation: {
+            // animateElement: 'animateElement cubic-bezier(.300,.450,.450,.950) .75s',
+          },
+          keyframes: {
+            // animateElement: {
+            //   '0%': {
+            //     transform: 'translate(0px, 50px)'
+            //   },
+            //   '100%': {
+            //     transform: 'translate(0px, 0px)'
+            //   }
+            // }
+          },
+          boxShadow: {
+            // '3xl': '0px 100px 80px rgba(0, 0, 0, 0.07), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802)',
+            // 'menu': '0 15px 40px 5px rgba(20, 20, 20, 0.07)'
+          },
+          zIndex: {
+            '1': '1',
+            '2': '2',
+          },
+        }
+      }
+    }
+  </script>
+
+  {% include style.html %}
+</head>
